@@ -1,0 +1,45 @@
+.modalBackground {
+  position: fixed;
+    width: 100%;
+    height: 100%;
+    background: RGBA(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 3;
+}
+
+.modalContainer {
+  position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #fff;
+    text-align: center;
+    padding: 20px;
+    color: #000;
+    z-index: 2003;
+    margin: auto;
+    
+    @media screen and (min-width: 996px) {
+      width: 50%;
+    }
+    @media screen and (min-width: 768px) and (max-width: 995px) {
+      width: 75%;
+      top: 30%;
+    }
+    @media screen and (max-width: 767px) {
+      width: 80%;
+      top: 55% !important;
+      overflow: scroll;
+      max-height: 70%;
+    }
+}
+
+.titleCloseBtn button {
+  background-color: transparent;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}

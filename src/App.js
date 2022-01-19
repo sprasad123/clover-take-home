@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios'; 
+import ImageList from './components/ImageList/ImageList';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [characters, setCharacters] = useState([])
+    const [errorMessage, seterrorMessage] = useState('Something went wrong. Please reload.')
+
+    // Retrieve list of characters from API endpoint
+    useEffect(() => {
+        axios.get('https://rickandmortyapi.com/api/character')
+        .then(response => response.data).then( res => setCharacters(res.results))
+        }, [])
+        
+    // If GET request is successful, pass the characters list as a prop
+    return (
+        <div>
+            {characters ?
+                (<ImageList characters={characters} />) :
+                (<div>Error: {this.state.errorMessage}</div>)}
+        </div>
+    );
 }
 
-export default App;
+export default App; 
