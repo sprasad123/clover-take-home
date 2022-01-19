@@ -5,6 +5,7 @@
 Strengths: 
   - I used nested components so that each component is readable.
   - In the future, scalability is possible since each component represents one unit or step in the workflow.
+
 Weaknesses:
   - I could have added more error checking.
 
